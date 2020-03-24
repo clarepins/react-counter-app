@@ -3,8 +3,10 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0,
-    imageURL: "https:/picsum.photos/300"
+    imageURL: "https:/picsum.photos/300",
+    tags: ["tag1", "tag2", "tag3"]
   };
+
   render() {
     return (
       <React.Fragment>
@@ -12,6 +14,11 @@ class Counter extends Component {
         <div>
           <span className={this.getCounterClass()}>{this.formatCount()}</span>
           <button className="btn btn-secondary btn-sm">Increment</button>
+          <ul>
+            {this.state.tags.map(tag => (
+              <li key={tag}>{tag}</li>
+            ))}
+          </ul>
         </div>
       </React.Fragment>
     );
