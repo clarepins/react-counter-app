@@ -7,6 +7,12 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"]
   };
 
+  messageIfNoTags() {
+    if (this.state.tags.length === 0) return "Please add a tag";
+
+    return this.state.tags.map(tag => <li key={tag}>{tag}</li>);
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -14,11 +20,7 @@ class Counter extends Component {
         <div>
           <span className={this.getCounterClass()}>{this.formatCount()}</span>
           <button className="btn btn-secondary btn-sm">Increment</button>
-          <ul>
-            {this.state.tags.map(tag => (
-              <li key={tag}>{tag}</li>
-            ))}
-          </ul>
+          <ul>{this.messageIfNoTags()}</ul>
         </div>
       </React.Fragment>
     );

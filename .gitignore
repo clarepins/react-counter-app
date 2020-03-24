@@ -1,1 +1,14 @@
 
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+".gitignore" 23L, 310C
