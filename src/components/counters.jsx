@@ -16,7 +16,7 @@ class Counters extends Component {
       <div>
         <img src="https:/picsum.photos/1500/200" alt="Random pic" />
         {this.state.counters.map(counter => (
-          <Counter key={counter.id} value={counter.value} />
+          <Counter key={counter.id} value={counter.value} id={counter.id} />
         ))}
       </div>
     );
