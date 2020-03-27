@@ -22,18 +22,18 @@ class App extends Component {
   };
 
   handleIncrement = counter => {
-    const counters = [...this.state.counters];
-    const index = counters.indexOf(counter);
-    counters[index] = { ...counter };
-    counters[index].value++;
-    this.setState({ counters });
+    this.handleChange(counter, "up");
   };
 
   handleDecrement = counter => {
+    this.handleChange(counter, "down");
+  };
+
+  handleChange = (counter, change) => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
     counters[index] = { ...counter };
-    counters[index].value--;
+    change === "up" ? counters[index].value++ : counters[index].value--;
     this.setState({ counters });
   };
 
