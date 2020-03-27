@@ -2,19 +2,27 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   render() {
+    const { counter, onIncrement, onDecrement, onDelete } = this.props;
+
     return (
       <React.Fragment>
-        <h4>Counter #{this.props.counter.id}</h4>
+        <h4>Counter #{counter.id}</h4>
         <div>
           <span className={this.getCounterClass()}>{this.formatValue()}</span>
           <button
-            onClick={() => this.props.onIncrement(this.props.counter)}
-            className="btn btn-secondary btn-sm"
+            onClick={() => onIncrement(counter)}
+            className="btn btn-secondary btn-sm m-2"
           >
-            Increment
+            + 1
           </button>
           <button
-            onClick={() => this.props.onDelete(this.props.counter.id)}
+            onClick={() => onDecrement(counter)}
+            className="btn btn-secondary btn-sm m-2"
+          >
+            - 1
+          </button>
+          <button
+            onClick={() => onDelete(counter.id)}
             className="btn btn-danger btn-sm m-2"
           >
             Delete
