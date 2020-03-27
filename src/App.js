@@ -26,7 +26,7 @@ class App extends Component {
   };
 
   handleDecrement = counter => {
-    this.handleChange(counter, "down");
+    counter.value > 0 && this.handleChange(counter, "down");
   };
 
   handleChange = (counter, change) => {
